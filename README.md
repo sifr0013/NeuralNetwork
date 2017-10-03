@@ -1,6 +1,6 @@
 # NeuralNetwork
 
-A project under the course [Artificial Intelligence - The Basics](https://www.umu.se/utbildning/kurser/artificiell-intelligens---grunderna/) at [Ume� University](http://www.umu.se/).
+A project under the course [Artificial Intelligence - The Basics](https://www.umu.se/utbildning/kurser/artificiell-intelligens---grunderna/) at [Umeå University](http://www.umu.se/).
 
 Simon Fredriksson [(sifr0013)](sifr0013@student.umu.se "Email")
 Isak Gustafsson [(isgu0011)](isgu0011@student.umu.se "Email")
