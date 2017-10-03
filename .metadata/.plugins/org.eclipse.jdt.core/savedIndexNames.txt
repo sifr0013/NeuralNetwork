@@ -1,0 +1,2 @@
+INDEX VERSION 1.127+C:\Users\oi15ign\workspace\AIOU2\NeuralNetwork\.metadata\.plugins\org.eclipse.jdt.core
+1037843725.index
