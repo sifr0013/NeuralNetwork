@@ -9,17 +9,17 @@ public class Image
 {
     private String imageName;
     private ArrayList<Double> pixelArray = new ArrayList();
-    private int caseClass = 0;
+    private int faceType = 0;
     
     /**
      *
      * @param imageName
-     * @param caseClass
+     * @param faceType
      */
-    public Image(String imageName, int caseClass)
+    public Image(String imageName, int faceType)
     {
         this.imageName = imageName;
-        this.caseClass = caseClass;
+        this.faceType = faceType;
     }
 
     /**
@@ -53,17 +53,17 @@ public class Image
      *
      * @return
      */
-    public int getCaseClass()
+    public int getFaceType()
     {
-        return caseClass;
+        return faceType;
     }
 
     /**
      *
-     * @param caseClass
+     * @param faceType
      */
-    public void setCaseClass(int caseClass)
+    public void setFaceType(int faceType)
     {
-        this.caseClass = caseClass;
+        this.faceType = faceType;
     }
 }
