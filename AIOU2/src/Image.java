@@ -8,22 +8,27 @@ import java.util.ArrayList;
 public class Image
 {
     private String imageName;
-    private ArrayList<Double> imageArray = new ArrayList();
+    private ArrayList<Double> pixelArray = new ArrayList();
     private int caseClass = 0;
-
-    //Testkommentar av Isak
     
     /**
      *
      * @param imageName
-     * @param imageArray
      * @param caseClass
      */
-    public Image(String imageName, ArrayList imageArray, int caseClass)
+    public Image(String imageName, int caseClass)
     {
         this.imageName = imageName;
-        this.imageArray = imageArray;
         this.caseClass = caseClass;
+    }
+
+    /**
+     *
+     * @param pixelArray
+     */
+    public void setImageArray(ArrayList<Double> pixelArray)
+    {
+        this.pixelArray = pixelArray;
     }
 
     /**
@@ -41,7 +46,7 @@ public class Image
      */
     public ArrayList<Double> getImageArray()
     {
-        return imageArray;
+        return pixelArray;
     }
 
     /**
