@@ -11,6 +11,8 @@ public class Image
     private ArrayList<Double> imageArray = new ArrayList();
     private int caseClass = 0;
 
+
+    //Testkommentar av Simon
     /**
      *
      * @param imageName
