@@ -10,9 +10,9 @@ import java.util.Scanner;
  */
 public class ImageReader
 {
-    private ArrayList<Image> trainingPictures;
-    private ArrayList<Image> facitPictures;
-    private ArrayList<Image> testPictues;
+    private ArrayList<Image> trainingPictures = new ArrayList<>();
+    private ArrayList<Image> facitPictures = new ArrayList<>();
+    private ArrayList<Image> testPictues = new ArrayList<>();
 
     /**
      *
@@ -34,11 +34,11 @@ public class ImageReader
      * @param arrayList
      * @throws FileNotFoundException
      */
-    private void loader(File file, ArrayList arrayList) throws FileNotFoundException
+    private void loader(File file, ArrayList<Image> arrayList) throws FileNotFoundException
     {
         Scanner scanner = new Scanner(file);
         String commentString;
-        ArrayList<Double> imageArray;
+        ArrayList<Integer> imageArray;
         String imageName;
         int faceType;
 
@@ -47,9 +47,13 @@ public class ImageReader
             //Setting the faceType to 0 as the faceType and type of File is unknown.
             faceType = 0;
 
-            if (!scanner.hasNext("#") && scanner.hasNext("Image"))
+            commentString = scanner.nextLine();
+
+            System.out.println(commentString);
+            if (!commentString.contains("#") && commentString.contains("Image"))
             {
-                imageName = scanner.nextLine();
+                System.out.println("Går in i loop");
+                imageName = commentString;
                 imageArray = new ArrayList<>();
 
                 //If the file doesn't have a double after the Image##-line, it means that
@@ -65,7 +69,7 @@ public class ImageReader
                 {
                     for (int i = 0; i < 400; i++)
                     {
-                        imageArray.add(scanner.nextDouble());
+                        imageArray.add(scanner.nextInt());
                     }
                 }
 
@@ -76,7 +80,6 @@ public class ImageReader
                 arrayList.add(img);
                 
             }
-            commentString = scanner.nextLine();
         }
     }
 
@@ -102,4 +105,6 @@ public class ImageReader
     {
         return trainingPictures;
     }
+
+
 }
