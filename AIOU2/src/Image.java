@@ -9,7 +9,7 @@ public class Image
 {
     private String imageName;
     private ArrayList<Double> imageArray = new ArrayList();
-    private int caseClass;
+    private int caseClass = 0;
 
     /**
      *
