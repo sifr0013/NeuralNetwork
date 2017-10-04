@@ -21,8 +21,8 @@ The numbers represent how dark a pixel is, where **0** is white and **31** is bl
 
 ## To do
 
-- [ ] Implement a class for holding an image.
-- [ ] Implement a working imageReader. Should be able to read both training and facit images.
+- [x] Implement a class for holding an image.
+- [x] Implement a working imageReader. Should be able to read both training and facit images.
 - [ ] Implement a neuron that can guess and be trained. Should work for each different expression.
 - [ ] Implement a chain of four different neurons (*one for each expression*) that should be able to determine what kind of
 facial expression an image contains.
