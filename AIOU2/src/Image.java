@@ -12,7 +12,7 @@ public class Image
     private int caseClass = 0;
 
     //Testkommentar av Isak
-
+    
     /**
      *
      * @param imageName
