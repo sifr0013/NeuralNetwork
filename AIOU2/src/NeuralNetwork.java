@@ -13,10 +13,10 @@ public class NeuralNetwork
     public NeuralNetwork(ImageReader imageReader, double learningRate, int arraySize)
     {
         iR = imageReader;
-        Happy = new Neuron(imageReader,1,learningRate, arraySize);
-        Sad = new Neuron(imageReader,2,learningRate, arraySize);
-        Mischievous = new Neuron(imageReader,3,learningRate, arraySize);
-        Mad = new Neuron(imageReader,4,learningRate, arraySize);
+        Happy = new Neuron(1,learningRate, arraySize);
+        Sad = new Neuron(2,learningRate, arraySize);
+        Mischievous = new Neuron(3,learningRate, arraySize);
+        Mad = new Neuron(4,learningRate, arraySize);
 
     }
 }

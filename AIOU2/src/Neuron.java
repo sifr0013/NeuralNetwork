@@ -9,7 +9,6 @@ import static java.lang.Math.exp;
  */
 public class Neuron
 {
-    private Image img;
     private int expectedFaceType;
     private ArrayList<Double> weightList;
     private double learningRate;
@@ -18,9 +17,8 @@ public class Neuron
     private double biasWeight = 1.0;
 
 
-    public Neuron(Image image, int expectedFaceType, double learningRate, int arraySize)
+    public Neuron(int expectedFaceType, double learningRate, int arraySize)
     {
-        img = image;
         this.expectedFaceType = expectedFaceType;
         this.learningRate = learningRate;
         weightList = new ArrayList<>(arraySize);
@@ -42,17 +40,27 @@ public class Neuron
      * @return 0, if the Neuron does not recognize the face.
      * @return 1, if the Neuron does recognize the face.
      */
-    public int guess()
+    public double guess(Image img)
     {
+        double sum = 0;
         for (int i = 0; i < weightList.size(); i++)
         {
-
+            sum += weightList.get(i)*img.getPixelArray().get(i);
         }
+        sum += biasWeight;
+        return activationFunction(sum);
 
     }
 
-    public void train()
+    public void train(Image trainImg, Image facitImg)
     {
+        if (expectedFaceType==facitImg.getFaceType())
+        {
+            if (guess(trainImg)==1)
+            {
+
+            }
+        }
 
     }
 

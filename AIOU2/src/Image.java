@@ -44,7 +44,7 @@ public class Image
      *
      * @return
      */
-    public ArrayList<Integer> getImageArray()
+    public ArrayList<Integer> getPixelArray()
     {
         return pixelArray;
     }
