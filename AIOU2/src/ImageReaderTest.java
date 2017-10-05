@@ -24,9 +24,9 @@ public class ImageReaderTest
 
             Image img;
 
-            for (int j = 0; j < 299; j++)
+            for (int j = 0; j < 200; j++)
             {
-                img = facitArray.get(j);
+                img = trainingArray.get(j);
                 img.printImage();
             }
         }

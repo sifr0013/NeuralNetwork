@@ -82,10 +82,10 @@ public class Image
 
 
                 System.out.print(""+pixelArray.get(i)+" ");
-                if (counter == 20)
+                if (counter == 19)
                 {
                     System.out.println();
-                    counter = 0;
+                    counter = -1;
                 }
                 counter++;
             }
