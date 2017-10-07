@@ -49,10 +49,8 @@ public class ImageReader
 
             commentString = scanner.nextLine();
 
-            System.out.println(commentString);
             if (!commentString.contains("#") && commentString.contains("Image"))
             {
-                System.out.println("Går in i loop");
                 imageName = commentString;
                 imageArray = new ArrayList<>();
 
