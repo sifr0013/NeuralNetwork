@@ -7,7 +7,7 @@ import static java.lang.Math.exp;
  * @author oi15ign, oi15sfn
  *
  */
-public class Neuron
+public class OutputNeuron
 {
     private int expectedFaceType;
     private ArrayList<Double> weightList;
@@ -17,7 +17,7 @@ public class Neuron
     private double biasWeight = 1.0;
 
 
-    public Neuron(int expectedFaceType, double learningRate, int arraySize)
+    public OutputNeuron(int expectedFaceType, double learningRate, int arraySize)
     {
         this.expectedFaceType = expectedFaceType;
         this.learningRate = learningRate;

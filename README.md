@@ -49,7 +49,8 @@ facial expression an image contains.
 - Bias vikten används för att man teoretiskt inte ska kunna få en matris fylld med ettor. Alltså att vikterna alla blir 1.
 - Den neuron som ger ut en gissning som är närmast 1, är den gissning som vårt nätverk kommer att göra.
 Alltså behöver vi göra så att vårt nätverk bestämmer över träningen och inte noderna själva.
+- Aktivationnivån måste vara åtkomlig i nätverket.
 - Om totala antalet rätt gissnigar som vårt nätverk gör är 25%, betyder det att det bara är slump, eftersom det är 1/4 chans att programmet
 gissar rätt. Är vi runt 50% är det något som är knas också. Över 65% rätt svar är vad som krävs av vårt nätverk för att vi ska kunna få godkänt.
 Alltså kan vi köra träningen tills vi når typ 70%, och sedan går vi direkt till testet. (Undviker vi overfitting då? Förmodligen).
-- Error = 1 eller 0 - "aktiverings-nivån"
+- Error = 1 eller 0 - "aktiverings-nivån(utslaget noden ger)"

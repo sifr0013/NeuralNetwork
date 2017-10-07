@@ -3,20 +3,20 @@
  */
 public class NeuralNetwork
 {
-    private Neuron Happy;
-    private Neuron Sad;
-    private Neuron Mischievous;
-    private Neuron Mad;
+    private OutputNeuron Happy;
+    private OutputNeuron Sad;
+    private OutputNeuron Mischievous;
+    private OutputNeuron Mad;
 
     ImageReader iR;
 
     public NeuralNetwork(ImageReader imageReader, double learningRate, int arraySize)
     {
         iR = imageReader;
-        Happy = new Neuron(1,learningRate, arraySize);
-        Sad = new Neuron(2,learningRate, arraySize);
-        Mischievous = new Neuron(3,learningRate, arraySize);
-        Mad = new Neuron(4,learningRate, arraySize);
+        Happy = new OutputNeuron(1,learningRate, arraySize);
+        Sad = new OutputNeuron(2,learningRate, arraySize);
+        Mischievous = new OutputNeuron(3,learningRate, arraySize);
+        Mad = new OutputNeuron(4,learningRate, arraySize);
 
     }
 }
