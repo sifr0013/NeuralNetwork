@@ -37,8 +37,7 @@ public class OutputNeuron
 
     /**
      *
-     * @return 0, if the Neuron does not recognize the face.
-     * @return 1, if the Neuron does recognize the face.
+     * @return a value between 0 and 1
      */
     public double guess(Image img)
     {

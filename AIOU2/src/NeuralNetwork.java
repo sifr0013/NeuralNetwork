@@ -9,6 +9,7 @@ public class NeuralNetwork
     private static final int RANDOMSEED = 1;
 
     private ArrayList<Image> shuffledTrainingList, shuffledFacitList;
+    private ArrayList<OutputNeuron> oNList = new ArrayList<>();
 
     public NeuralNetwork(ImageReader imageReader, double learningRate, int arraySize)
     {
@@ -17,6 +18,11 @@ public class NeuralNetwork
         Mischievous = new OutputNeuron(3,learningRate, arraySize);
         Mad = new OutputNeuron(4,learningRate, arraySize);
 
+        oNList.add(Happy);
+        oNList.add(Sad);
+        oNList.add(Mischievous);
+        oNList.add(Mad);
+
         shuffleTrainingAndFacitLists(imageReader);
 
     }
@@ -24,6 +30,11 @@ public class NeuralNetwork
     public void run()
     {
 
+
+    }
+
+    private int guess()
+    {
 
     }
 
@@ -42,11 +53,13 @@ public class NeuralNetwork
 
     }
 
-    public ArrayList<Image> getShuffledTrainingList() {
+    public ArrayList<Image> getShuffledTrainingList()
+    {
         return shuffledTrainingList;
     }
 
-    public ArrayList<Image> getShuffledFacitList() {
+    public ArrayList<Image> getShuffledFacitList()
+    {
         return shuffledFacitList;
     }
 }
