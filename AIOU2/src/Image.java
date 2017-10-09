@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Image
 {
     private String imageName;
-    private ArrayList<Integer> pixelArray = new ArrayList();
+    private ArrayList<Double> pixelArray = new ArrayList();
     private int faceType = 0;
     
     /**
@@ -26,7 +26,7 @@ public class Image
      *
      * @param pixelArray
      */
-    public void setImageArray(ArrayList<Integer> pixelArray)
+    public void setImageArray(ArrayList<Double> pixelArray)
     {
         this.pixelArray = pixelArray;
     }
@@ -44,7 +44,7 @@ public class Image
      *
      * @return
      */
-    public ArrayList<Integer> getPixelArray()
+    public ArrayList<Double> getPixelArray()
     {
         return pixelArray;
     }

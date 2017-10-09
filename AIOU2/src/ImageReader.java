@@ -38,7 +38,7 @@ public class ImageReader
     {
         Scanner scanner = new Scanner(file);
         String commentString;
-        ArrayList<Integer> imageArray;
+        ArrayList<Double> imageArray;
         String imageName;
         int faceType;
 
@@ -67,7 +67,7 @@ public class ImageReader
                 {
                     for (int i = 0; i < 400; i++)
                     {
-                        imageArray.add(scanner.nextInt());
+                        imageArray.add(scanner.nextDouble());
                     }
                 }
 
