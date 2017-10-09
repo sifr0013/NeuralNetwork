@@ -1,3 +1,4 @@
+import org.junit.Test;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -5,6 +6,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 import static com.sun.xml.internal.ws.dump.LoggingDumpTube.Position.Before;
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**

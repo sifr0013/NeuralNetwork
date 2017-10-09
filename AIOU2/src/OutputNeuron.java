@@ -13,6 +13,7 @@ public class OutputNeuron
     private ArrayList<Double> weightList;
     private double learningRate;
     private double error;
+    private double activationLevel;
     private int trainingIteration = 0;
     private double biasWeight = 1.0;
 
@@ -35,11 +36,8 @@ public class OutputNeuron
         }
     }
 
-    /**
-     *
-     * @return a value between 0 and 1
-     */
-    public double guess(Image img)
+
+    public void updateActivationLevel(Image img)
     {
         double sum = 0;
         for (int i = 0; i < weightList.size(); i++)
@@ -47,19 +45,12 @@ public class OutputNeuron
             sum += weightList.get(i)*img.getPixelArray().get(i);
         }
         sum += biasWeight;
-        return activationFunction(sum);
-
+        activationFunction(sum);
     }
 
     public void train(Image trainImg, Image facitImg)
     {
-        if (expectedFaceType==facitImg.getFaceType())
-        {
-            if (guess(trainImg)==1)
-            {
 
-            }
-        }
 
     }
 
@@ -68,16 +59,23 @@ public class OutputNeuron
 
     }
 
+    public double getActivationLevel()
+    {
+        return activationLevel;
+    }
 
+    public int getExpectedFaceType()
+    {
+        return expectedFaceType;
+    }
 
     /**
      * Private activation function. Sigmoid.
      * @param x
-     * @return
      */
     private double activationFunction(double x)
     {
-        return (1/(1+exp(-x)));
+        activationLevel = (1/(1+exp(-x)));
     }
 
 
