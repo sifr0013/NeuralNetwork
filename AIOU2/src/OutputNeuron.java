@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import static java.lang.Math.exp;
 
 /**
- * Class for creating a neuron.
+ *
  * @author oi15ign, oi15sfn
  *
  */
@@ -65,10 +65,7 @@ public class OutputNeuron
         return expectedFaceType;
     }
 
-    /**
-     * Private activation function. Sigmoid.
-     * @param x
-     */
+
     private double activationFunction(double x)
     {
         return (1/(1+Math.exp(-x)));

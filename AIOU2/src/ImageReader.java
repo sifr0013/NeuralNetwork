@@ -14,13 +14,7 @@ public class ImageReader
     private ArrayList<Image> facitPictures = new ArrayList<>();
     private ArrayList<Image> testPictues = new ArrayList<>();
 
-    /**
-     *
-     * @param trainingFile
-     * @param facitFile
-     * @param testFile
-     * @throws FileNotFoundException
-     */
+
     public ImageReader(File trainingFile, File facitFile, File testFile) throws FileNotFoundException
     {
         loader(trainingFile, trainingPictures);
@@ -28,12 +22,7 @@ public class ImageReader
         loader(testFile, testPictues);
     }
 
-    /**
-     *
-     * @param file
-     * @param arrayList
-     * @throws FileNotFoundException
-     */
+
     private void loader(File file, ArrayList<Image> arrayList) throws FileNotFoundException
     {
         Scanner scanner = new Scanner(file);
@@ -81,19 +70,13 @@ public class ImageReader
         }
     }
 
-    /**
-     *
-     * @return
-     */
+
     public ArrayList<Image> getFacitPictures()
     {
         return facitPictures;
     }
 
-    /**
-     *
-     * @return
-     */
+
     public ArrayList<Image> getTestPictues()
     {
         return testPictues;

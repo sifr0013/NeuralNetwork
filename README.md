@@ -23,12 +23,21 @@ The numbers represent how dark a pixel is, where **0** is white and **31** is bl
 
 - [x] Implement a class for holding an image.
 - [x] Implement a working imageReader. Should be able to read both training and facit images.
-- [ ] Implement a neuron that can guess and be trained. Should work for each different expression.
-    - [ ] Implement the training algorithm.
-    - [ ] Implement the guessing algorithm.
-- [ ] Implement a chain of four different neurons (*one for each expression*) that should be able to determine what kind of
+- [x] Implement a neuron that can guess and be trained. Should work for each different expression.
+    - [x] Implement the training algorithm.
+    - [x] Implement the guessing algorithm.
+- [x] Implement a chain of four different neurons (*one for each expression*) that should be able to determine what kind of
 facial expression an image contains.
-- [ ] Create the main function for the perceptron (Face.java).
+- [x] Create the main function for the perceptron (Face.java).
+- [ ] Complete commenting
+    - [ ] Faces (Isak/Simon)
+    - [ ] Image (Simon)
+    - [ ] ImageReader (Isak)
+    - [ ] OutputNeuron (Isak)
+    - [ ] NeuralNetwork (Simon)
+- [ ] Clean up code (Remove comments and printouts)
+- [ ] Ask tutor about optimisation (Can we achieve a higher accuracy?)
+- [ ] Check off requirements provided by the teacher
 
 
 ## The provided Training Algorithm

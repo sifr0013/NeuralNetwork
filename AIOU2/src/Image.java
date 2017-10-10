@@ -11,65 +11,44 @@ public class Image
     private ArrayList<Double> pixelArray = new ArrayList();
     private int faceType = 0;
     
-    /**
-     *
-     * @param imageName
-     * @param faceType
-     */
+
     public Image(String imageName, int faceType)
     {
         this.imageName = imageName;
         this.faceType = faceType;
     }
 
-    /**
-     *
-     * @param pixelArray
-     */
+
     public void setImageArray(ArrayList<Double> pixelArray)
     {
         this.pixelArray = pixelArray;
     }
 
-    /**
-     *
-     * @return
-     */
+
     public String getImageName()
     {
         return imageName;
     }
 
-    /**
-     *
-     * @return
-     */
+
     public ArrayList<Double> getPixelArray()
     {
         return pixelArray;
     }
 
-    /**
-     *
-     * @return
-     */
+
     public int getFaceType()
     {
         return faceType;
     }
 
-    /**
-     *
-     * @param faceType
-     */
+
     public void setFaceType(int faceType)
     {
         this.faceType = faceType;
     }
 
-    /**
-     *
-     */
+
     public void printImage()
     {
         int counter = 0;

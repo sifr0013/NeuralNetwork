@@ -2,7 +2,9 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Created by Simon on 2017-10-04.
+ *
+ * @author oi15ign, oi15sfn
+ *
  */
 public class NeuralNetwork
 {
@@ -108,27 +110,7 @@ public class NeuralNetwork
         //System.out.println("----------------------------");
     }
 
-    /**
-     * Private method for deciding which of the nodes has the largest activation level.
-     * @return the number of the node with the largest activation level.
-     */
-    /*private int guess(Image img)
-    {
-        OutputNeuron oN = oNList.get(0);
-        //System.out.println("Activation level of node "+0+": "+oN.getActivationLevel(img));
 
-        for (int i = 1; i < oNList.size(); i++)
-        {
-            //System.out.println("Activation level of node "+i+": "+oNList.get(i).getActivationLevel(img));
-            if (oN.getActivationLevel(img) < oNList.get(i).getActivationLevel(img))
-            {
-
-                oN = oNList.get(i);
-            }
-        }
-
-        return oN.getExpectedFaceType();
-    }*/
 
     private int guess(Image img)
     {
