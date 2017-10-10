@@ -56,8 +56,8 @@ public class NeuralNetwork
             //System.out.println("Storlek på kontrollgrupp"+shuffledTestList.size());
             for (int j = 0; j < shuffledTestList.size(); j++)
             {
-                System.out.print("Facit: "+shuffledTestFacitList.get(j).getFaceType());
-                System.out.println(" Gissning: "+guess(shuffledTestList.get(j)));
+                //System.out.print("Facit: "+shuffledTestFacitList.get(j).getFaceType());
+                //System.out.println(" Gissning: "+guess(shuffledTestList.get(j)));
                 if (shuffledTestFacitList.get(j).getFaceType()!=guess(shuffledTestList.get(j)))
                 {
                     //System.out.println("Fel i jämförelse "+j);

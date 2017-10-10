@@ -19,7 +19,7 @@ public class Faces
 
 		try {
 			iR = new ImageReader(trainingFile, facitFile, testFile);
-			NeuralNetwork nn = new NeuralNetwork(iR,0.10,400);
+			NeuralNetwork nn = new NeuralNetwork(iR,0.005,400);
 			nn.run(iR);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
