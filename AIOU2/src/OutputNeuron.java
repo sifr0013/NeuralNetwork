@@ -1,5 +1,3 @@
-import com.sun.xml.internal.bind.v2.runtime.output.SAXOutput;
-
 import java.util.ArrayList;
 
 import static java.lang.Math.exp;
@@ -59,6 +57,7 @@ public class OutputNeuron
             weightList.set(i,updatedWeight);
 
         }
+        biasWeight = biasWeight + learningRate*outputError;
     }
 
     public int getExpectedFaceType()

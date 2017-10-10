@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.*;
 
 /**
@@ -44,10 +45,11 @@ public class NeuralNetwork
             //System.out.println("Average Error = "+averageError);
             for (int i = 0; i < shuffledTrainingList.size(); i++)
             {
+                //trainOutputNeurons(shuffledTrainingList.get(i),shuffledFacitList.get(i));
                 if (shuffledFacitList.get(i).getFaceType()!=guess(shuffledTrainingList.get(i)))
                 {
                     //System.out.println("Ska träna "+i);
-                    trainOutputNeurons(shuffledTrainingList.get(i));
+                    trainOutputNeurons(shuffledTrainingList.get(i),shuffledFacitList.get(i));
                 }
             }
 
@@ -66,31 +68,44 @@ public class NeuralNetwork
             }
 
             averageError = errorCounter/shuffledTestList.size();
-            //System.out.println("Average Error = "+averageError);
+            System.out.println("Average Error = "+averageError);
 
             counter++;
-            if (counter == 500)
+
+            if (counter == 10)
             {
-                System.out.println(""+averageError);
+                //System.out.println(""+averageError);
                 counter = 0;
             }
-        } while (averageError>0.3);
+        } while (averageError>0.0152);
 
 
         //Phase 2
-        for (int i = 0; i < finalTestList.size(); i++)
-        {
-            System.out.println(finalTestList.get(i).getImageName()+" "+guess(finalTestList.get(i)));
+        try {
+            File result = new File("/Users/Simon/Documents/GitHub/NeuralNetwork/AIOU2/FaceTestFiles/result.txt");
+            FileOutputStream is = new FileOutputStream(result);
+            OutputStreamWriter osw = new OutputStreamWriter(is);
+            Writer w = new BufferedWriter(osw);
+
+            for (int i = 0; i < finalTestList.size(); i++) {
+                w.write(finalTestList.get(i).getImageName() + " " + guess(finalTestList.get(i))+'\n');
+                //System.out.println(finalTestList.get(i).getImageName()+" "+guess(finalTestList.get(i)));
+            }
+            w.close();
         }
+        catch (Exception e)
+        {}
     }
 
-    private void trainOutputNeurons(Image trainImg)
+    private void trainOutputNeurons(Image trainImg, Image facitImg)
     {
         for (OutputNeuron oN : oNList)
         {
-            double outputError = calculateOutputError((oN.getExpectedFaceType() == trainImg.getFaceType() ? 1 : 0),oN.getActivationLevel(trainImg));
+            double outputError = calculateOutputError((oN.getExpectedFaceType() == facitImg.getFaceType() ? 1 : 0),oN.getActivationLevel(trainImg));
             oN.train(trainImg, outputError);
+            //System.out.print(""+(oN.getExpectedFaceType() == trainImg.getFaceType() ? 1 : 0)+" ");
         }
+        //System.out.println("----------------------------");
     }
 
     /**
