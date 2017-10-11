@@ -30,11 +30,11 @@ The numbers represent how dark a pixel is, where **0** is white and **31** is bl
 facial expression an image contains.
 - [x] Create the main function for the perceptron (Face.java).
 - [ ] Complete commenting
-    - [ ] Faces (Isak/Simon)
-    - [ ] Image (Simon)
-    - [ ] ImageReader (Isak)
-    - [ ] OutputNeuron (Isak)
-    - [ ] NeuralNetwork (Simon)
+    - [x] Faces (Isak/Simon)
+    - [x] Image (Simon)
+    - [x] ImageReader (Isak)
+    - [x] OutputNeuron (Isak)
+    - [x] NeuralNetwork (Simon)
 - [ ] Clean up code (Remove comments and printouts)
 - [ ] Ask tutor about optimisation (Can we achieve a higher accuracy?)
 - [ ] Check off requirements provided by the teacher

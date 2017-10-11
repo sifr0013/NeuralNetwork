@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 /**
- *
+ * Class for creating a Neural Network that will classify images between four different states.
  * @author oi15ign, oi15sfn
  *
  */
@@ -10,11 +10,16 @@ public class NeuralNetwork
 {
     private OutputNeuron Happy, Sad, Mischievous, Mad;
     private static final int RANDOMSEED = 1;
-    private int trainSetSize, testSetSize;
 
     private ArrayList<Image> shuffledTrainingList, shuffledFacitList, shuffledTestList, shuffledTestFacitList, finalTestList;
     private ArrayList<OutputNeuron> oNList = new ArrayList<>();
 
+    /**
+     * Constructor for creating a NeuralNetwork
+     * @param imageReader - an ImageReader to provide the array of images.
+     * @param learningRate - the learning rate of the neural network.
+     * @param arraySize - the size of the images.
+     */
     public NeuralNetwork(ImageReader imageReader, double learningRate, int arraySize)
     {
         Happy = new OutputNeuron(1,learningRate, arraySize);
@@ -36,35 +41,32 @@ public class NeuralNetwork
 
     }
 
+    /**
+     * Public method for running the NeuralNetwork. Both trains and tests the network.
+     * @param iR - the imagereader with the image arrays.
+     */
     public void run(ImageReader iR)
     {
         //Phase 1
-        double averageError=0;
+        double averageError;
         int counter = 0;
         do
         {
             createTrainAndTestGroups(iR);
-            //System.out.println("Average Error = "+averageError);
             for (int i = 0; i < shuffledTrainingList.size(); i++)
             {
-                //trainOutputNeurons(shuffledTrainingList.get(i),shuffledFacitList.get(i));
                 if (shuffledFacitList.get(i).getFaceType()!=guess(shuffledTrainingList.get(i)))
                 {
-                    //System.out.println("Ska träna "+i);
                     trainOutputNeurons(shuffledTrainingList.get(i),shuffledFacitList.get(i));
                 }
             }
 
             double errorCounter = 0;
 
-            //System.out.println("Storlek på kontrollgrupp"+shuffledTestList.size());
             for (int j = 0; j < shuffledTestList.size(); j++)
             {
-                //System.out.print("Facit: "+shuffledTestFacitList.get(j).getFaceType());
-                //System.out.println(" Gissning: "+guess(shuffledTestList.get(j)));
                 if (shuffledTestFacitList.get(j).getFaceType()!=guess(shuffledTestList.get(j)))
                 {
-                    //System.out.println("Fel i jämförelse "+j);
                     errorCounter++;
                 }
             }
@@ -76,7 +78,6 @@ public class NeuralNetwork
 
             if (counter == 10)
             {
-                //System.out.println(""+averageError);
                 counter = 0;
             }
         } while (averageError>0.0152);
@@ -91,7 +92,6 @@ public class NeuralNetwork
 
             for (int i = 0; i < finalTestList.size(); i++) {
                 w.write(finalTestList.get(i).getImageName() + " " + guess(finalTestList.get(i))+'\n');
-                //System.out.println(finalTestList.get(i).getImageName()+" "+guess(finalTestList.get(i)));
             }
             w.close();
         }
@@ -99,19 +99,28 @@ public class NeuralNetwork
         {}
     }
 
+    /**
+     * Private method for training the OutputNeurons in the NeuralNetwork.
+     * @param trainImg - the training image.
+     * @param facitImg - the facit image.
+     */
     private void trainOutputNeurons(Image trainImg, Image facitImg)
     {
         for (OutputNeuron oN : oNList)
         {
             double outputError = calculateOutputError((oN.getExpectedFaceType() == facitImg.getFaceType() ? 1 : 0),oN.getActivationLevel(trainImg));
             oN.train(trainImg, outputError);
-            //System.out.print(""+(oN.getExpectedFaceType() == trainImg.getFaceType() ? 1 : 0)+" ");
         }
-        //System.out.println("----------------------------");
     }
 
-
-
+    /**
+     * Private method for guessing what kind of expression the image contains.
+     * @param img - the image the NeuralNetwork should guess what it is.
+     * @return - 1, if Happy
+     *         - 2, if Sad
+     *         - 3, if Mischievous
+     *         - 4, if Mad
+     */
     private int guess(Image img)
     {
         HashMap<Double, Integer> activationLevels = new HashMap<>();
@@ -159,24 +168,30 @@ public class NeuralNetwork
         {
             if (i < trainingListToShuffle.size()/3)
             {
-                //System.out.println("Lägger till "+i+" till testbilder");
                 shuffledTestList.add(trainingListToShuffle.get(i));
                 shuffledTestFacitList.add(facitListToShuffle.get(i));
             }
             else
             {
-                //System.out.println("Lägger till "+i+" till träningsbilder");
                 shuffledTrainingList.add(trainingListToShuffle.get(i));
                 shuffledFacitList.add(facitListToShuffle.get(i));
             }
         }
     }
 
+    /**
+     * Public method for returning the shuffled training list of images. Mainly used for testing.
+     * @return - the shuffled training list of images.
+     */
     public ArrayList<Image> getShuffledTrainingList()
     {
         return shuffledTrainingList;
     }
 
+    /**
+     * Public method for returning the shuffled facit list of images. Mainly used for testing.
+     * @return - the shuffled facit list of images.
+     */
     public ArrayList<Image> getShuffledFacitList()
     {
         return shuffledFacitList;
