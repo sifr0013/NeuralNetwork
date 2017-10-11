@@ -1,10 +1,8 @@
-import java.io.*;
 import java.util.*;
 
 /**
  * Class for creating a Neural Network that will classify images between four different states.
  * @author oi15ign, oi15sfn
- *
  */
 public class NeuralNetwork
 {
@@ -37,7 +35,7 @@ public class NeuralNetwork
         shuffledFacitList = new ArrayList<>();
         shuffledTrainingList = new ArrayList<>();
 
-        finalTestList = imageReader.getTestPictues();
+        finalTestList = imageReader.getTestPictures();
 
     }
 
@@ -49,7 +47,6 @@ public class NeuralNetwork
     {
         //Phase 1
         double averageError;
-        int counter = 0;
         do
         {
             createTrainAndTestGroups(iR);
@@ -72,31 +69,15 @@ public class NeuralNetwork
             }
 
             averageError = errorCounter/shuffledTestList.size();
-            System.out.println("Average Error = "+averageError);
 
-            counter++;
-
-            if (counter == 10)
-            {
-                counter = 0;
-            }
         } while (averageError>0.0152);
 
 
         //Phase 2
-        try {
-            File result = new File("/Users/Simon/Documents/GitHub/NeuralNetwork/AIOU2/FaceTestFiles/result.txt");
-            FileOutputStream is = new FileOutputStream(result);
-            OutputStreamWriter osw = new OutputStreamWriter(is);
-            Writer w = new BufferedWriter(osw);
-
-            for (int i = 0; i < finalTestList.size(); i++) {
-                w.write(finalTestList.get(i).getImageName() + " " + guess(finalTestList.get(i))+'\n');
-            }
-            w.close();
+        for (int i = 0; i < finalTestList.size(); i++)
+        {
+            System.out.println(finalTestList.get(i).getImageName() + " " + guess(finalTestList.get(i)));
         }
-        catch (Exception e)
-        {}
     }
 
     /**
@@ -137,9 +118,9 @@ public class NeuralNetwork
     /**
      * Private method to calculate the guessing error. Be aware that this does not calculate the networks
      * average error.
-     * @param targetVal
-     * @param outputVal
-     * @return
+     * @param targetVal - the target value of the outputnoeuron. 1 if the node should recognize the image, 0 if it should not.
+     * @param outputVal - the current activationlevel of the outputneuron
+     * @return the outputerror
      */
     private double calculateOutputError(double targetVal, double outputVal)
     {
@@ -149,7 +130,7 @@ public class NeuralNetwork
     /**
      * Divides the provided images and facit images in two sets. 2/3 for training, and 1/3 for testing the
      * average error. Also shuffles the two sets.
-     * @param iR
+     * @param iR - the imagereader with the arraylists of images used to train and test the neural network.
      */
     private void createTrainAndTestGroups(ImageReader iR)
     {

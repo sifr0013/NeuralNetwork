@@ -94,7 +94,7 @@ public class ImageReader
      *
      * @return - testPictures
      */
-    public ArrayList<Image> getTestPictues()
+    public ArrayList<Image> getTestPictures()
     {
         return testPictures;
     }

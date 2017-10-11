@@ -72,7 +72,6 @@ public class OutputNeuron
         {
             updatedWeight = (weightList.get(i) + learningRate*outputError*trainImg.getPixelArray().get(i));
             weightList.set(i,updatedWeight);
-
         }
         biasWeight = biasWeight + learningRate*outputError;
     }

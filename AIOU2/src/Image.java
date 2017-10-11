@@ -3,7 +3,6 @@ import java.util.ArrayList;
 /**
  * Class that represent the image.
  * @author oi15ign, oi15sfn
- *
  */
 public class Image
 {
@@ -13,7 +12,7 @@ public class Image
 
     /**
      * Constructor for creating an Image.
-     * @param imageName - the id-of the image in the form of a string.
+     * @param imageName - the id of the image in the form of a string.
      * @param faceType - the facetype of the image provided. Set to 0 if its a training image.
      */
     public Image(String imageName, int faceType)

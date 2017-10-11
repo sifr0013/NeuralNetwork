@@ -9,11 +9,11 @@ public class Faces
 {
 	public static void main(String[] args)
 	{
-		File testFile = new File("/Users/Simon/Documents/GitHub/NeuralNetwork/AIOU2/FaceTestFiles/test-B.txt");
-		File facitFile = new File("/Users/Simon/Documents/GitHub/NeuralNetwork/AIOU2/FaceTestFiles/facit-A.txt");
-		File trainingFile = new File("/Users/Simon/Documents/GitHub/NeuralNetwork/AIOU2/FaceTestFiles/training-A.txt");
+		File trainingFile = new File(args[0]);
+        File facitFile = new File(args[1]);
+        File testFile = new File(args[2]);
 
-		ImageReader iR = null;
+		ImageReader iR;
 
 		try {
 			iR = new ImageReader(trainingFile, facitFile, testFile);
@@ -22,6 +22,5 @@ public class Faces
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-
 	}
 }
