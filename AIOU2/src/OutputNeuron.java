@@ -1,11 +1,8 @@
 import java.util.ArrayList;
 
-import static java.lang.Math.exp;
-
 /**
- *
+ * Class for creating an outputNeuron
  * @author oi15ign, oi15sfn
- *
  */
 public class OutputNeuron
 {
@@ -15,7 +12,13 @@ public class OutputNeuron
     private double biasWeight = 1.0;
     private int arraySize;
 
-
+    /**
+     * Public Constructor for the class OutputNeuron.
+     *
+     * @param expectedFaceType - The facetype wich the program guesses.
+     * @param learningRate - Used to control how fast the program should learn.
+     * @param arraySize - Used to control the size of an array
+     */
     public OutputNeuron(int expectedFaceType, double learningRate, int arraySize)
     {
         this.expectedFaceType = expectedFaceType;
@@ -27,6 +30,9 @@ public class OutputNeuron
 
     }
 
+    /**
+     * private method to initialize the weightlist
+     */
     private void initializeWeightList()
     {
         for (int i = 0; i < arraySize; i++)
@@ -35,7 +41,12 @@ public class OutputNeuron
         }
     }
 
-
+    /**
+     * public method to get the activationlevel from an Image
+     *
+     * @param img - The image that we want to know the activationlevel from.
+     * @return - The activationlevel
+     */
     public double getActivationLevel(Image img)
     {
         double sum = 0;
@@ -47,6 +58,12 @@ public class OutputNeuron
         return activationFunction(sum);
     }
 
+    /**
+     * Public method to train the program by changing weights.
+     *
+     * @param trainImg - The image we should "train"
+     * @param outputError - The error
+     */
     public void train(Image trainImg, double outputError)
     {
 
@@ -60,17 +77,24 @@ public class OutputNeuron
         biasWeight = biasWeight + learningRate*outputError;
     }
 
+    /**
+     * public method to get the expectedFacevalue
+     *
+     * @return - expected facetype
+     */
     public int getExpectedFaceType()
     {
         return expectedFaceType;
     }
 
-
+    /**
+     * private method to calculate the activationlevel by using the sigmoid algorithm
+     *
+     * @param x - the pixelweightsum we want to calculate the activationlevel for.
+     * @return - The activation level
+     */
     private double activationFunction(double x)
     {
         return (1/(1+Math.exp(-x)));
     }
-
-
-
 }

@@ -6,23 +6,35 @@ import java.util.Scanner;
 /**
  * Class for loading an image.
  * @author oi15ign, oi15sfn
- *
  */
 public class ImageReader
 {
     private ArrayList<Image> trainingPictures = new ArrayList<>();
     private ArrayList<Image> facitPictures = new ArrayList<>();
-    private ArrayList<Image> testPictues = new ArrayList<>();
+    private ArrayList<Image> testPictures = new ArrayList<>();
 
-
+    /**
+     * Public ImageReader - Used to load the training-, facit- and testfile.
+     *
+     * @param trainingFile - The file that is used for the trainingpart of the program.
+     * @param facitFile - The file that contains the correct answers, used to compare to the programs guesses.
+     * @param testFile - The testfile that is used to test our program after the training has completed.
+     * @throws FileNotFoundException - Throws an exception if a file is not found.
+     */
     public ImageReader(File trainingFile, File facitFile, File testFile) throws FileNotFoundException
     {
         loader(trainingFile, trainingPictures);
         loader(facitFile, facitPictures);
-        loader(testFile, testPictues);
+        loader(testFile, testPictures);
     }
 
-
+    /**
+     * Private method loader - Used to read the input file and storing its´ content into an ArrayList.
+     *
+     * @param file - The file we want to read.
+     * @param arrayList - The specified arrayList that we want to fill with the files' elements.
+     * @throws FileNotFoundException - Throws an exception if a file is not found.
+     */
     private void loader(File file, ArrayList<Image> arrayList) throws FileNotFoundException
     {
         Scanner scanner = new Scanner(file);
@@ -60,32 +72,40 @@ public class ImageReader
                     }
                 }
 
-
                 Image img = new Image(imageName, faceType);
                 img.setImageArray(imageArray);
 
                 arrayList.add(img);
-                
             }
         }
     }
 
-
+    /**
+     * Public function getFacitPictures - Used to get the facitPictures.
+     * @return - facitPictures
+     */
     public ArrayList<Image> getFacitPictures()
     {
         return facitPictures;
     }
 
-
+    /**
+     * Public function getTestPictures - Used to get the testPictures.
+     *
+     * @return - testPictures
+     */
     public ArrayList<Image> getTestPictues()
     {
-        return testPictues;
+        return testPictures;
     }
 
+    /**
+     * Public function getTrainingPictures - Used to get the TrainingPictures.
+     *
+     * @return - trainingPictures
+     */
     public ArrayList<Image> getTrainingPictures()
     {
         return trainingPictures;
     }
-
-
 }
