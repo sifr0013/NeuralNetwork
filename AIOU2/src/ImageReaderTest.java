@@ -20,7 +20,7 @@ public class ImageReaderTest
             ImageReader iR = new ImageReader(trainingFile, facitFile, testFile);
             ArrayList<Image> trainingArray = iR.getTrainingPictures();
             ArrayList<Image> facitArray = iR.getFacitPictures();
-            ArrayList<Image> testArray = iR.getTestPictues();
+            ArrayList<Image> testArray = iR.getTestPictures();
 
             Image img;
 

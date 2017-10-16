@@ -29,14 +29,14 @@ The numbers represent how dark a pixel is, where **0** is white and **31** is bl
 - [x] Implement a chain of four different neurons (*one for each expression*) that should be able to determine what kind of
 facial expression an image contains.
 - [x] Create the main function for the perceptron (Face.java).
-- [ ] Complete commenting
+- [x] Complete commenting
     - [x] Faces (Isak/Simon)
     - [x] Image (Simon)
     - [x] ImageReader (Isak)
     - [x] OutputNeuron (Isak)
     - [x] NeuralNetwork (Simon)
-- [ ] Clean up code (Remove comments and printouts)
-- [ ] Ask tutor about optimisation (Can we achieve a higher accuracy?)
+- [x] Clean up code (Remove comments and printouts)
+- [x] Ask tutor about optimisation (Can we achieve a higher accuracy?)
 - [ ] Check off requirements provided by the teacher
 
 
